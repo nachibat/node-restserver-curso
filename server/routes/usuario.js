@@ -65,8 +65,6 @@ app.post('/usuario', function(req, res) {
             });
         }
 
-        // usuarioDB.password = null;
-
         res.json({
             ok: true,
             usuario: usuarioDB
@@ -80,8 +78,6 @@ app.put('/usuario/:id', function(req, res) {
 
     let id = req.params.id;
     let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado']);
-
-
 
     Usuario.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (err, usuarioDB) => {
 
